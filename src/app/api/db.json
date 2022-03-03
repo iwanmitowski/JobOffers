@@ -19,10 +19,8 @@
       "name": "org1",
       "email": "org1",
       "password": "123",
-      "createdOffers": [
-        {
-          "id": 1
-        }
+      "createdOffers": [ 
+        1
       ]
     }
   ],
@@ -36,7 +34,7 @@
       "category": "some comment",
       "creatorId": 1,
       "candidates":[
-
+        1
       ],
       "approved":[
 
