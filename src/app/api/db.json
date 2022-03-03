@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "email": "admin",
+      "password": "123",
+      "role": "user",
+      "approvedOffers": [
+        {
+          "id": 1
+        }
+      ]
+    }
+  ],
+  "organisations": [
+    {
+      "id": 1,
+      "name": "org1",
+      "email": "org1",
+      "password": "123",
+      "createdOffers": [
+        {
+          "id": 1
+        }
+      ]
+    }
+  ],
+  "offers": [
+    {
+      "id": 1,
+      "title": "some comment",
+      "description": "some comment",
+      "type": "some comment",
+      "isActive": true,
+      "category": "some comment",
+      "creatorId": 1,
+      "candidates":[
+
+      ],
+      "approved":[
+
+      ]
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
