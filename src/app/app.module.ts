@@ -8,6 +8,12 @@ import { OrganisationsComponent } from './organisations/organisations.component'
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AuthComponent } from './auth/auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,11 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    AuthRoutingModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
