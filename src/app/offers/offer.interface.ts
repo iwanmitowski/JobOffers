@@ -1,3 +1,5 @@
+import { User } from "../users/user.interface";
+
 export interface Offer{
     "id": number,
     "title": string,
@@ -6,6 +8,9 @@ export interface Offer{
     "isActive": boolean,
     "category": string,
     "creatorId": number,
-    "candidates": number[],
-    "approved": number[]
+    "creator": User,
+    "candidateIds": number[],
+    "candidates": User[],
+    "approvedIds": number[],
+    "approved": User[],
 }

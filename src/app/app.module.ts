@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
-import { OfferItemComponent } from './offers/offer-item/offer-item/offer-item.component';
+import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 
 @NgModule({
   declarations: [
