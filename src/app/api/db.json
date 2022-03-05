@@ -7,19 +7,25 @@
       "password": "123",
       "role": "user",
       "approvedOffers": [
-        {
-          "id": 1
-        }
       ]
-    }
-  ],
-  "organisations": [
+    },
     {
-      "id": 1,
+      "id": 2,
       "name": "org1",
       "email": "org1",
       "password": "123",
+      "role": "user",
       "createdOffers": [ 
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "name": "user1",
+      "email": "user1",
+      "password": "123",
+      "role": "user",
+      "approvedOffers": [
         1
       ]
     }
@@ -32,12 +38,12 @@
       "type": "some comment",
       "isActive": true,
       "category": "some comment",
-      "creatorId": 1,
+      "creatorId": 2,
       "candidates":[
         1
       ],
       "approved":[
-
+        3
       ]
     }
   ],

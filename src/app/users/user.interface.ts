@@ -4,5 +4,6 @@ export interface User{
     "email": string,
     "password"?: string,
     "role": string,
-    "approvedOffers": number[]
+    "approvedOffers": number[],
+    "createdOffers": number[],
 }
