@@ -34,9 +34,21 @@ export class OffersService {
     return this.http.put<Offer>(putUrl, offer);
   }
 
+  patchOffer$(offer: Offer): Observable<Offer>{
+    const patchUrl = `${this.baseUrl}/${offer.id}`;
+
+    return this.http.patch<Offer>(patchUrl, offer);
+  }
+
   deleteOffer$(id: number): Observable<void>{
     const deleteUrl = `${this.baseUrl}/${id}`;
     
     return this.http.delete<void>(deleteUrl);
   }
+
+  // addCandidate$(id: number): Observable<void>{
+  //   const patchUrl = `${this.baseUrl}/${id}`
+
+  //   return this.http.patch<void>(deleteUrl);
+  // }
 }

@@ -1,14 +1,10 @@
-<article>
-    <h3> {{offer.title}} </h3>
-    <p class="author" >
-        Author: {{offer.type}}
-    </p>
-    <p class="summary">
-        Summary: {{offer.description}}
-    </p>
-
-    <div>
-    
+<article class="card">
+    <div class="text">
+      <h3>{{offer.title}}</h3>
+      <h5>Category: {{offer.category}}</h5>
+      <h5>Type: {{offer.category}}</h5>
+      <p>{{offer.description}}</p>
+      <p>Candidates: {{offer.candidates.length || 0}}</p>
+      <button (click)="onClick()">Candidate</button>
     </div>
-</article>
-
+  </article>

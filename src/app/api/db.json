@@ -6,8 +6,7 @@
       "email": "admin",
       "password": "123",
       "role": "user",
-      "approvedOffersIds": [
-      ]
+      "approvedOffersIds": []
     },
     {
       "id": 2,
@@ -15,7 +14,7 @@
       "email": "org1",
       "password": "123",
       "role": "organisation",
-      "createdOfferIds": [ 
+      "createdOfferIds": [
         1
       ]
     },
@@ -28,23 +27,195 @@
       "approvedOffersIds": [
         1
       ]
+    },
+    {
+      "id": 4,
+      "name": "a",
+      "email": "a",
+      "password": "a",
+      "role": "user",
+      "approvedOffersIds": [
+        3,
+        2
+      ]
     }
   ],
   "offers": [
     {
       "id": 1,
-      "title": "some comment",
-      "description": "some comment",
-      "type": "some comment",
+      "title": "Junior .Net",
+      "description": "We are looking for Junior .NET Developers to join our evolving team. In this role, you will be participating in the implementation and unit testing of products as part of a knowledgeable team. You will develop and review code and contribute both to process improvement activities and the go-live plan. Successful candidates are expected to contribute to development tasks and assist in providing estimates and documentation for the chosen solution. Our team uses the industry’s best practices while producing high-quality solutions in a collaborative, agile, results-driven environment to meet our clients' business needs. You will be part of a work environment where teamwork is encouraged, excellence and growth - rewarded, and diversity – respected and valued.",
+      "type": "Developer",
       "isActive": true,
-      "category": "some comment",
+      "category": "IT",
       "creatorId": 2,
-      "candidateIds":[
-        1, 3
-      ],
-      "approvedIds":[
+      "candidateIds": [
+        1,
         3
+      ],
+      "approvedIds": [
+        3
+      ],
+      "creator": {
+        "id": 2,
+        "name": "org1",
+        "email": "org1",
+        "password": "123",
+        "role": "organisation",
+        "createdOfferIds": [
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "id": 1,
+          "name": "admin",
+          "email": "admin",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": []
+        },
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
+      ],
+      "approved": [
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
       ]
+    },
+    {
+      "id": 2,
+      "title": "Angular Developer",
+      "description": "We are looking for Junior Angular Developers to join our evolving team. In this role, you will be participating in the implementation and unit testing of products as part of a knowledgeable team. You will develop and review code and contribute both to process improvement activities and the go-live plan. Successful candidates are expected to contribute to development tasks and assist in providing estimates and documentation for the chosen solution. Our team uses the industry’s best practices while producing high-quality solutions in a collaborative, agile, results-driven environment to meet our clients' business needs. You will be part of a work environment where teamwork is encouraged, excellence and growth - rewarded, and diversity – respected and valued.",
+      "type": "Developer",
+      "isActive": true,
+      "category": "IT",
+      "creatorId": 2,
+      "candidateIds": [
+        1,
+        3,
+        4
+      ],
+      "approvedIds": [
+        3
+      ],
+      "creator": {
+        "id": 2,
+        "name": "org1",
+        "email": "org1",
+        "password": "123",
+        "role": "organisation",
+        "createdOfferIds": [
+          1
+        ]
+      },
+      "candidates": [
+        {
+          "id": 1,
+          "name": "admin",
+          "email": "admin",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": []
+        },
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
+      ],
+      "approved": [
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Java Developer",
+      "description": "We are looking for Junior Java Developers to join our evolving team. In this role, you will be participating in the implementation and unit testing of products as part of a knowledgeable team. You will develop and review code and contribute both to process improvement activities and the go-live plan. Successful candidates are expected to contribute to development tasks and assist in providing estimates and documentation for the chosen solution. Our team uses the industry’s best practices while producing high-quality solutions in a collaborative, agile, results-driven environment to meet our clients' business needs. You will be part of a work environment where teamwork is encouraged, excellence and growth - rewarded, and diversity – respected and valued.",
+      "type": "Developer",
+      "isActive": true,
+      "category": "IT",
+      "creatorId": 2,
+      "candidateIds": [
+        1,
+        3,
+        4
+      ],
+      "approvedIds": [
+        3
+      ],
+      "candidates": [
+        {
+          "id": 1,
+          "name": "admin",
+          "email": "admin",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": []
+        },
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
+      ],
+      "approved": [
+        {
+          "id": 3,
+          "name": "user1",
+          "email": "user1",
+          "password": "123",
+          "role": "user",
+          "approvedOffersIds": [
+            1
+          ]
+        }
+      ],
+      "creator": {
+        "id": 2,
+        "name": "org1",
+        "email": "org1",
+        "password": "123",
+        "role": "organisation",
+        "createdOfferIds": [
+          1
+        ]
+      }
     }
   ],
   "profile": {

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { map, take } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { finalize, map, take } from 'rxjs/operators';
+import { AuthService } from '../auth/services/auth.service';
 import { User } from '../users/user.interface';
 import { UsersService } from '../users/users.service';
 import { Offer } from './offer.interface';
@@ -17,10 +20,44 @@ export class OffersComponent implements OnInit {
   constructor(
     private offersService: OffersService,
     private usersService: UsersService,
+    private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.setOffers();
+  }
+
+  candidate(offer: Offer): void{
+    let user = this.authService.getUserFromStorage();
+
+    if (offer.candidateIds.includes(user.id)) {
+        alert(`You can't candidate more than once`);
+        return;
+    }
+    
+    offer.candidateIds.push(user.id);    
+
+    this.offersService.putOffer$(offer).subscribe();
+
+    let userForEdit = this.usersService.getUser$(user.id);
+    
+
+    userForEdit.pipe(
+      map((res: User) =>{
+        res.approvedOffersIds.push(offer.id);
+        return res;
+      }
+    ),
+    take(1))
+    .subscribe({
+      next: (res: User)=>{
+        this.usersService.patchUser$(res).subscribe();
+        this.setOffers();
+        alert(`Successfully applied for offer: ${offer.title}`)
+      }
+    });
+
   }
 
 
@@ -29,11 +66,12 @@ export class OffersComponent implements OnInit {
     .getOffers$()
     .pipe(
       map((res: Offer[])=>{
+        res = res.sort((a,b) => b.id - a.id);
+
         res.forEach(o =>{
           this.setCreator(o, o.creatorId);
           this.setUsers(o);
         })
-        console.log(res);
         
         return res;
       }),

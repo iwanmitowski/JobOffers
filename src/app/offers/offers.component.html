@@ -1,8 +1,7 @@
-<h3>Offers list</h3>
+<h1 style="margin: 0 auto;">Offers list</h1>
 
-<section>
-    <div>
+<div class="cards">
         <app-offer-item *ngFor="let offer of offers;"
-        [offer]="offer"></app-offer-item>
-    </div>
-</section>
+        [offer]="offer"
+        (offerClicked)="candidate(offer)"></app-offer-item>
+</div>

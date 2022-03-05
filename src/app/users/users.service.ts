@@ -23,4 +23,10 @@ export class UsersService {
 
      return this.http.get<User>(url);
    }
+
+   patchUser$(user: User): Observable<User>{
+       const patchUrl = `${this.baseUrl}/${user.id}`
+
+       return this.http.patch<User>(patchUrl, user);
+   }
 }
