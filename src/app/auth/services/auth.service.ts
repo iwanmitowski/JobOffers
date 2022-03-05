@@ -1,45 +1,52 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Login } from '../models/login.model';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/users/user.interface';
-import { environment } from '../../../environments/environment';
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
+import { map } from "rxjs/operators";
+import { Login } from "../models/login.model";
+import { User } from "src/app/users/user.interface";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root' // Singleton
 })
-export class AuthService {
-
-  constructor(private http: HttpClient) {
-  }
-
-  login$(data: Login): Observable<User | null> {
-    return this.http.get<User[]>(`${environment.apiUrl}/users`).pipe(
-      map((response: User[]) => {
-        const user = response.find(u => u.email === data.email && u.password === data.password);
-        console.log(user);
+export class AuthService{
+    
+    
+    constructor(private http: HttpClient) {
         
+    }
+ 
+    login$(data: Login): Observable<User>{
+        return this.http.get<User[]>(`${environment.apiUrl}/users`).pipe(
+            map((response: User[])=>{
+                const user = response.find(u => u.email === data.email && u.password === data.password);
+
+                if (user) {
+                    return user;
+                }
+
+                return null as any;
+            })
+        );
+    }
+
+    storeUserData(user: User): void{
+        delete user.password;
+
+        localStorage.setItem('loggedUser', JSON.stringify(user));
+    }
+
+    getUserFromStorage(): User{
+        let user = localStorage.getItem('loggedUser');
+
         if (user) {
-          return user;
+          return JSON.parse(user);
         }
-        console.log(2);
-        
-        return null;
-      })
-    );
-  }
 
-  logout(): void {
-    localStorage.removeItem('loggedUser');
-  }
+        return null as any;
+    }
 
-  storeUserData(user: User): void {
-    delete user.password;
-    localStorage.setItem('loggedUser', JSON.stringify(user));
-  }
-
-  getUserFromStorage(): User {
-    return JSON.parse(localStorage.getItem('loggedUser') || '');
-  }
+    logout(): void{
+        localStorage.removeItem('loggedUser');
+    }
 }

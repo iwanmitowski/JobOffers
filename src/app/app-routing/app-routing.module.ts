@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { OffersComponent } from '../offers/offers.component';
-import { UsersComponent } from '../users/users.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'offers',
-    component: OffersComponent,
+    path: 'auth',
+    loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'user',
-    component: UsersComponent,
+    path: '',
+    loadChildren: () => import('../main/main.module').then(m => m.MainModule),
+    canActivate: [AuthGuard]
   }
-
 ]
 
 @NgModule({
-  declarations: [],
   imports: [
     [RouterModule.forRoot(routes)],
   ],

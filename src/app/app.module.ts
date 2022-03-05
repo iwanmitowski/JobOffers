@@ -21,7 +21,6 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     UsersComponent,
     OffersComponent,
     OrganisationsComponent,
-    MainComponent,
     HeaderComponent,
   ],
   imports: [

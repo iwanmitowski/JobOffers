@@ -24,21 +24,18 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+
+    if (this.authService.getUserFromStorage()) {
+      this.router.navigate(['/','offers'])
+    }
   }
 
   onSubmit(): void{
     this.authService.login$(this.formGroup.value).subscribe({
       next: (res) =>{
         if (res) {
-
-          console.log(res);
-          
-          this.authService.storeUserData(res);
-          console.log(22);
-          
-          this.router.navigate(['']);
-          console.log(33);
-          
+          this.authService.storeUserData(res);          
+          this.router.navigate(['/']);          
         }
         else{
           alert('Incorrect password or username')
