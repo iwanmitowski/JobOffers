@@ -1,1 +1,8 @@
-<p>offers works!</p>
+<h3>Offers list</h3>
+
+<section>
+    <div>
+        <app-offer-item *ngFor="let offer of offers;"
+        [offer]="offer"></app-offer-item>
+    </div>
+</section>
