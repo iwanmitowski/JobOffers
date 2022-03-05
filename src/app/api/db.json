@@ -36,7 +36,8 @@
       "role": "user",
       "approvedOffersIds": [
         3,
-        2
+        2,
+        3
       ]
     }
   ],
@@ -109,8 +110,7 @@
       "creatorId": 2,
       "candidateIds": [
         1,
-        3,
-        4
+        3
       ],
       "approvedIds": [
         3
@@ -172,7 +172,8 @@
         4
       ],
       "approvedIds": [
-        3
+        3,
+        4
       ],
       "candidates": [
         {
@@ -192,6 +193,13 @@
           "approvedOffersIds": [
             1
           ]
+        },
+        {
+          "id": 4,
+          "name": "a",
+          "email": "a",
+          "role": "user",
+          "approvedOffersIds": []
         }
       ],
       "approved": [
@@ -210,7 +218,6 @@
         "id": 2,
         "name": "org1",
         "email": "org1",
-        "password": "123",
         "role": "organisation",
         "createdOfferIds": [
           1

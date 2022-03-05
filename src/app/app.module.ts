@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { OfferItemComponent } from './offers/offer-item/offer-item.component';
+import { OfferDetailsComponent } from './offers/offer-details/offer-details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { OfferItemComponent } from './offers/offer-item/offer-item.component';
     OffersComponent,
     HeaderComponent,
     OfferItemComponent,
+    OfferDetailsComponent,
   ],
   imports: [
     BrowserModule,

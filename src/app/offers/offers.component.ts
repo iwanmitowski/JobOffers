@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { finalize, map, take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { AuthService } from '../auth/services/auth.service';
 import { User } from '../users/user.interface';
 import { UsersService } from '../users/users.service';
@@ -36,13 +35,11 @@ export class OffersComponent implements OnInit {
         return;
     }
     
-    offer.candidateIds.push(user.id);    
-
-    this.offersService.putOffer$(offer).subscribe();
-
     let userForEdit = this.usersService.getUser$(user.id);
+    offer.candidateIds.push(user.id);
+    offer.candidates.push(user);
     
-
+    this.offersService.putOffer$(offer).subscribe();
     userForEdit.pipe(
       map((res: User) =>{
         res.approvedOffersIds.push(offer.id);
@@ -90,6 +87,7 @@ export class OffersComponent implements OnInit {
     .subscribe(
       {
         next: (res: User) =>{
+          delete res.password;
           offer.creator = res;
         }
       }

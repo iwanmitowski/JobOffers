@@ -20,3 +20,12 @@ body {
 button{
   cursor: pointer;
 }
+.center{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.center ul li{
+  display: block !important;
+}

@@ -1,0 +1,21 @@
+<div class= "center">
+    <app-offer-item 
+    [offer]="offer">
+    </app-offer-item>
+
+    
+</div>
+<h1 class="center">Candidates waiting approval</h1>
+<div class="center">
+    <div>
+        <ul *ngFor="let candidate of offer.candidates">
+            <li>
+                <div>
+                    <a href="{{candidate.id}}" *ngIf="!offer.approvedIds.includes(candidate.id)">{{candidate.name}}</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { OfferDetailsComponent } from "../offers/offer-details/offer-details.component";
 import { OffersComponent } from "../offers/offers.component";
 import { MainComponent } from "./main.component";
 
@@ -10,17 +11,16 @@ const routes: Routes = [
         children:[
             {
                 path: 'offers',
-                component: OffersComponent
+                component: OffersComponent,
             },
-            // {
-            //     path: 'offers/create',
-            //     component:  ,
-            //     canActivate: [aclGuard]  
-            // },
-            // {
-            //     path: 'offers/edit/:id',
-            //     component: 
-            // },
+            {
+                path: 'offers/create',
+                component:  OffersComponent,
+            },
+            {
+                path: 'offers/edit/:id',
+                component: OfferDetailsComponent,
+            },
             {
                 path: '',
                 pathMatch: 'full',
