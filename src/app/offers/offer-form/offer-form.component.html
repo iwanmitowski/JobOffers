@@ -1,0 +1,43 @@
+<h1>{{offer.id ? 'Edit ' : 'Create '}} offer</h1>
+
+<div>
+    <form [formGroup]="formGroup"  (ngSubmit)="onSubmit()" *ngIf="this.formGroup">
+        <div>
+            <label>Title</label><br>
+            <input type="text"
+                   placeholder="Title"
+                   formControlName="title">
+        </div>
+        <div>
+            <label>Description</label><br>
+            <textarea type="text"
+                      placeholder="Description"
+                      formControlName="description">
+                      </textarea>
+        </div>
+        <div>
+            <label>Type</label><br>
+            <input type="text"
+                   placeholder="Type"
+                   formControlName="type">
+        </div>
+        <div>
+            <label>Category</label><br>
+            <input type="text"
+                   placeholder="Category"
+                   formControlName="category">
+        </div>
+        <div>
+            <label>Is Active</label>
+            <input type="checkbox"
+                   [checked]="offer.isActive"
+                   (change)="eventCheck()">
+        </div>
+        <div>
+            <!-- <button type="submit" (ngClick)="onEdit()">Edit</button> -->
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

@@ -36,7 +36,8 @@ export class OffersService {
 
   patchOffer$(offer: Offer): Observable<Offer>{
     const patchUrl = `${this.baseUrl}/${offer.id}`;
-
+    console.log(offer);
+    
     return this.http.patch<Offer>(patchUrl, offer);
   }
 

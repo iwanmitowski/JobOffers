@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { OfferItemComponent } from './offers/offer-item/offer-item.component';
 import { OfferDetailsComponent } from './offers/offer-details/offer-details.component';
+import { OfferFormComponent } from './offers/offer-form/offer-form.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { OfferDetailsComponent } from './offers/offer-details/offer-details.comp
     HeaderComponent,
     OfferItemComponent,
     OfferDetailsComponent,
+    OfferFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -19,3 +19,15 @@
     padding: 10px;
     width: 100%;
     }
+
+    .card .text a > button {
+      background: gray;
+      border: 0;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      }
+
+  button{
+    margin-top: 5px;
+  }

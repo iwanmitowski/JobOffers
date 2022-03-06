@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { User } from 'src/app/users/user.interface';
 import { UsersService } from 'src/app/users/users.service';
 import { Offer } from '../offer.interface';
 import { OffersService } from '../offers.service';
@@ -10,6 +12,7 @@ import { OffersService } from '../offers.service';
 })
 export class OfferItemComponent implements OnInit {
 
+  user!: User;
   @Input() offer!: Offer;
   
   @Output() offerClicked: EventEmitter<Offer> = new EventEmitter<Offer>();
@@ -17,9 +20,11 @@ export class OfferItemComponent implements OnInit {
   constructor(
     private userService: UsersService,
     private offersService: OffersService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getUserFromStorage();
   }
 
   onClick(): void{

@@ -6,5 +6,9 @@
       <p>{{offer.description}}</p>
       <p>Candidates: {{offer.candidates.length || 0}}</p>
       <button (click)="onClick()">Candidate</button>
+      <a 
+              [routerLink]= "['/offers', 'edit', offer.id]">
+              <button>Edit</button>
+            </a>
     </div>
   </article>
