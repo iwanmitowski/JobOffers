@@ -1,1 +1,35 @@
-<p>register works!</p>
+
+<div class="container"> 
+    <h1 style="text-align: center;">Register Form</h1>
+    <div class="center">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div>
+                <label>Email</label><br>
+                <input type="text"
+                       placeholder="Name"
+                       formControlName="name">
+            </div>
+            <div>
+                <label>Email</label><br>
+                <input type="text"
+                       placeholder="Email"
+                       formControlName="email">
+            </div>
+            <div>
+                <label>Password</label><br>
+                <input type="password"
+                       placeholder="Password"
+                       formControlName="password">
+            </div>
+            <div>
+                <label>Repeat password</label><br>
+                <input type="password"
+                       placeholder="Repeat Password"
+                       formControlName="rePass">
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -47,6 +47,32 @@
         4,
         6
       ]
+    },
+    {
+      "name": "а",
+      "email": "а",
+      "password": "а",
+      "id": 6
+    },
+    {
+      "name": "c",
+      "email": "c",
+      "password": "c",
+      "id": 7
+    },
+    {
+      "name": "r",
+      "email": "r",
+      "password": "r",
+      "role": "user",
+      "id": 8
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "role": "user",
+      "id": 9
     }
   ],
   "offers": [
@@ -342,7 +368,8 @@
       "isActive": true,
       "creatorId": 4,
       "candidateIds": [
-        5
+        5,
+        8
       ],
       "creator": {
         "id": 4,
@@ -356,11 +383,19 @@
           "id": 5,
           "name": "b",
           "email": "b",
+          "password": "b",
           "role": "user",
           "approvedOffersIds": [
             5,
-            4
+            4,
+            6
           ]
+        },
+        {
+          "name": "r",
+          "email": "r",
+          "role": "user",
+          "id": 8
         }
       ],
       "approvedIds": [
@@ -376,8 +411,7 @@
           "approvedOffersIds": [
             5,
             4,
-            6,
-            5
+            6
           ]
         }
       ]

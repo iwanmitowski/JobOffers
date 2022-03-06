@@ -20,14 +20,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authService.getUserFromStorage()) {
+      this.router.navigate(['/','offers'])
+    }
+
     this.formGroup = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-
-    if (this.authService.getUserFromStorage()) {
-      this.router.navigate(['/','offers'])
-    }
   }
 
   onSubmit(): void{

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   logout(): void{
     this.user = null as any;
-    this.authService.logout();
+    this.authService.logout$();
 
     let currentUrl = this.router.url;
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;

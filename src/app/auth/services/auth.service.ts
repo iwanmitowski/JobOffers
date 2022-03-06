@@ -30,6 +30,15 @@ export class AuthService{
         );
     }
 
+    register$(user: User): Observable<User>{
+        user.role = 'user';
+        return this.http.post<User>(`${environment.apiUrl}/users`,user);
+    }
+
+    getUsers$(): Observable<User[]>{
+        return this.http.get<User[]>(`${environment.apiUrl}/users`);
+    }
+
     storeUserData(user: User): void{
         delete user.password;
 
@@ -46,7 +55,8 @@ export class AuthService{
         return null as any;
     }
 
-    logout(): void{
+
+    logout$(): void{
         localStorage.removeItem('loggedUser');
     }
 }
