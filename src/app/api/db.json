@@ -25,10 +25,7 @@
       "password": "123",
       "role": "user",
       "approvedOffersIds": [
-        1,
-        6,
-        5,
-        4
+        1
       ]
     },
     {
@@ -37,10 +34,18 @@
       "email": "a",
       "password": "a",
       "role": "organisation",
+      "approvedOffersIds": []
+    },
+    {
+      "id": 5,
+      "name": "b",
+      "email": "b",
+      "password": "b",
+      "role": "user",
       "approvedOffersIds": [
-        3,
-        2,
-        3
+        5,
+        4,
+        6
       ]
     }
   ],
@@ -243,12 +248,20 @@
       "type": "IT",
       "category": "IT",
       "isActive": true,
-      "creatorId": 0,
+      "creatorId": 3,
       "candidateIds": [
         2,
-        3
+        5
       ],
-      "creator": null,
+      "creator": {
+        "id": 3,
+        "name": "user1",
+        "email": "user1",
+        "role": "user",
+        "approvedOffersIds": [
+          1
+        ]
+      },
       "candidates": [
         {
           "id": 2,
@@ -261,13 +274,11 @@
           ]
         },
         {
-          "id": 3,
-          "name": "user1",
-          "email": "user1",
+          "id": 5,
+          "name": "b",
+          "email": "b",
           "role": "user",
-          "approvedOffersIds": [
-            1
-          ]
+          "approvedOffersIds": []
         }
       ],
       "approvedIds": [],
@@ -280,35 +291,9 @@
       "type": "Type",
       "category": "Cat",
       "isActive": true,
-      "creatorId": 0,
-      "candidateIds": [
-        3
-      ],
-      "creator": null,
-      "candidates": [
-        {
-          "id": 3,
-          "name": "user1",
-          "email": "user1",
-          "role": "user",
-          "approvedOffersIds": [
-            1
-          ]
-        }
-      ],
-      "approvedIds": [],
-      "approved": []
-    },
-    {
-      "id": 6,
-      "title": "myoffer3",
-      "description": "myoffer3",
-      "type": "myoffer3",
-      "category": "myoffer3",
-      "isActive": true,
       "creatorId": 4,
       "candidateIds": [
-        3
+        5
       ],
       "creator": {
         "id": 4,
@@ -323,39 +308,79 @@
       },
       "candidates": [
         {
-          "id": 3,
-          "name": "user1",
-          "email": "user1",
+          "id": 5,
+          "name": "b",
+          "email": "b",
+          "role": "user",
+          "approvedOffersIds": []
+        }
+      ],
+      "approvedIds": [
+        5
+      ],
+      "approved": [
+        {
+          "id": 5,
+          "name": "b",
+          "email": "b",
+          "password": "b",
           "role": "user",
           "approvedOffersIds": [
-            1
+            5,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "my new offerrrr",
+      "description": "my new offerrrr",
+      "type": "my new offerrrr",
+      "category": "my new offerrrr",
+      "isActive": true,
+      "creatorId": 4,
+      "candidateIds": [
+        5
+      ],
+      "creator": {
+        "id": 4,
+        "name": "a",
+        "email": "a",
+        "role": "organisation",
+        "approvedOffersIds": []
+      },
+      "candidates": [
+        {
+          "id": 5,
+          "name": "b",
+          "email": "b",
+          "role": "user",
+          "approvedOffersIds": [
+            5,
+            4
           ]
         }
       ],
-      "approvedIds": [],
-      "approved": []
-    },
-    {
-      "id": 7,
-      "title": "dummy4",
-      "description": "dumm555",
-      "type": "dummy5",
-      "category": "dummy4",
-      "isActive": false,
-      "creatorId": 2,
-      "candidateIds": [],
-      "creator": {
-        "id": 2,
-        "name": "org1",
-        "email": "org1",
-        "role": "organisation",
-        "createdOfferIds": [
-          1
-        ]
-      },
-      "candidates": null,
-      "approvedIds": [],
-      "approved": null
+      "approvedIds": [
+        5
+      ],
+      "approved": [
+        {
+          "id": 5,
+          "name": "b",
+          "email": "b",
+          "password": "b",
+          "role": "user",
+          "approvedOffersIds": [
+            5,
+            4,
+            6,
+            5
+          ]
+        }
+      ]
     }
   ],
   "profile": {

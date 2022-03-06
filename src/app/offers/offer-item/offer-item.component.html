@@ -5,6 +5,7 @@
       <p><strong>Type:</strong> {{offer.type}}</p>
       <p><strong>Description:</strong> {{offer.description}}</p>
       <p><strong>Candidates:</strong> {{offer.candidates.length || 0}}</p>
+      <p *ngIf="user.id == offer.creatorId"><strong>Is active:</strong> {{offer.isActive}}</p>
       <p *ngIf="offer.candidateIds.includes(user.id)">Are you approved: <strong [ngClass]="{'approved': offer.approvedIds.includes(user.id) === true}">{{offer.approvedIds.includes(user.id)}}</strong></p>
       <button *ngIf="user.role == 'user'" (click)="onClick()">Candidate</button>
       <a 

@@ -5,10 +5,11 @@
 <h1 class="center">Candidates waiting approval</h1>
 <div class="center">
     <div>
-        <ul *ngFor="let candidate of offer.candidates">
-            <li>
+       
+        <ul *ngFor="let candidate of offer?.candidates">
+            <li *ngIf="!offer.approvedIds.includes(candidate.id)">
                 <div>
-                    <a href="{{candidate.id}}" *ngIf="!offer.approvedIds.includes(candidate.id)">{{candidate.name}}</a>
+                    {{candidate.name}} <button (click)="approve(candidate.id)">Approve #{{candidate.id}}</button>
                 </div>
             </li>
         </ul>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { User } from 'src/app/users/user.interface';
+import { UsersService } from 'src/app/users/users.service';
 import { Offer } from '../offer.interface';
 import { OffersService } from '../offers.service';
 
@@ -19,6 +21,7 @@ export class OfferDetailsComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private offersService: OffersService,
     private router: Router,
+    private userService: UsersService,
   ) { }
 
   ngOnInit(): void {
@@ -38,4 +41,22 @@ export class OfferDetailsComponent implements OnInit {
     });
   }
 
+  approve(candidateId:number): void{
+    console.log(this.offer);
+    let candidate;
+
+    this.userService.getUser$(candidateId).subscribe({
+      next: (res: User)=>{
+        candidate = res;
+        this.offer.approved.push(candidate);
+        this.offer.approvedIds.push(candidateId);
+        candidate.approvedOffersIds.push(candidateId);
+        console.log(this.offer);
+        
+        this.userService.patchUser$(candidate);
+        this.offersService.patchOffer$(this.offer).subscribe(); 
+      }
+    });
+    
+  }
 }
