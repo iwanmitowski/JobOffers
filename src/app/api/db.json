@@ -334,6 +334,28 @@
       ],
       "approvedIds": [],
       "approved": []
+    },
+    {
+      "id": 7,
+      "title": "dummy4",
+      "description": "dumm555",
+      "type": "dummy5",
+      "category": "dummy4",
+      "isActive": false,
+      "creatorId": 2,
+      "candidateIds": [],
+      "creator": {
+        "id": 2,
+        "name": "org1",
+        "email": "org1",
+        "role": "organisation",
+        "createdOfferIds": [
+          1
+        ]
+      },
+      "candidates": null,
+      "approvedIds": [],
+      "approved": null
     }
   ],
   "profile": {

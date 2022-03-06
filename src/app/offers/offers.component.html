@@ -3,5 +3,6 @@
 <div class="cards">
         <app-offer-item *ngFor="let offer of offers;"
         [offer]="offer"
-        (offerClicked)="candidate(offer)"></app-offer-item>
+        (offerClicked)="candidate(offer)"
+        (offerDeleted)="delete(offer.id)"></app-offer-item>
 </div>

@@ -74,13 +74,12 @@ export class OfferFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(12);
-    
     if (this.formGroup.invalid) {
       this.formGroup.markAllAsTouched;
       
       return;
     }
+
     console.log('valid');
     
     const offer: Offer = {
@@ -90,9 +89,9 @@ export class OfferFormComponent implements OnInit {
       type: this.formGroup.value.type,
       category: this.formGroup.value.category,
       isActive: this.formGroup.value.isActive,
-      creatorId: this.user.id,
+      creatorId: this.formGroup.value.creator.id,
       candidateIds: this.offer.candidateIds,
-      creator: this.user,
+      creator: this.formGroup.value.creator,
       candidates: this.offer.candidates,
       approvedIds: this.offer.approvedIds,
       approved: this.offer.approved,
@@ -124,7 +123,6 @@ export class OfferFormComponent implements OnInit {
   }
 
   private initForm(): void{
-    console.log(this.offer.title);
     
     this.formGroup = this.fb.group({
       id: this.offer.id,
@@ -133,6 +131,11 @@ export class OfferFormComponent implements OnInit {
       type: this.offer.type,
       category: this.offer.category,
       isActive: this.offer.isActive,
-    })    
+      creatorId: this.user.id,
+      creator: this.user,
+    }) 
+    
+    console.log(this.formGroup);
+    
   }
 }

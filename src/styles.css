@@ -30,7 +30,6 @@ button{
   display: block !important;
 }
 
-input[type="text"],
 textarea {
     width:250px;
     padding: 0;

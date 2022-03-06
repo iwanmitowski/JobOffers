@@ -1,10 +1,10 @@
 <article class="card">
     <div class="text">
-      <h3>{{offer.title}}</h3>
-      <h5>Category: {{offer.category}}</h5>
-      <h5>Type: {{offer.category}}</h5>
-      <p>{{offer.description}}</p>
-      <p>Candidates: {{offer.candidates.length || 0}}</p>
+      <h3><strong>{{offer.title}}</strong></h3>
+      <p><strong>Category:</strong> {{offer.category}}</p>
+      <p><strong>Type:</strong> {{offer.type}}</p>
+      <p><strong>Description:</strong> {{offer.description}}</p>
+      <p><strong>Candidates:</strong> {{offer.candidates.length || 0}}</p>
       <p *ngIf="offer.candidateIds.includes(user.id)">Are you approved: <strong [ngClass]="{'approved': offer.approvedIds.includes(user.id) === true}">{{offer.approvedIds.includes(user.id)}}</strong></p>
       <button *ngIf="user.role == 'user'" (click)="onClick()">Candidate</button>
       <a 

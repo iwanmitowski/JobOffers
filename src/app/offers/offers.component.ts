@@ -15,7 +15,7 @@ import { OffersService } from './offers.service';
 export class OffersComponent implements OnInit {
 
   offers: Offer[] = [];
-
+  user!: User;
   constructor(
     private offersService: OffersService,
     private usersService: UsersService,
@@ -25,6 +25,7 @@ export class OffersComponent implements OnInit {
 
   ngOnInit(): void {
     this.setOffers();
+    this.user = this.authService.getUserFromStorage();
   }
 
   candidate(offer: Offer): void{
@@ -57,13 +58,24 @@ export class OffersComponent implements OnInit {
 
   }
 
+  delete(offerId: number): void{
+    if(confirm("Are you sure you want to delete " + this.offers.find(x=>x.id == offerId)?.title)) {
+       this.offersService.deleteOffer$(offerId).subscribe(
+      {
+        next: () =>{
+          this.offers = this.offers.filter(o => o.id != offerId);
+        }
+      }
+    );
+    }
+  }
 
   private setOffers(): void{
     this.offersService
     .getOffers$()
     .pipe(
       map((res: Offer[])=>{
-        res = res.sort((a,b) => b.id - a.id);
+        res = res.sort((a,b) => b.id - a.id).filter(x=>x.isActive || x.creatorId == this.user.id);
 
         res.forEach(o =>{
           this.setCreator(o, o.creatorId);

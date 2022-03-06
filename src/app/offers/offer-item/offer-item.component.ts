@@ -16,6 +16,7 @@ export class OfferItemComponent implements OnInit {
   @Input() offer!: Offer;
   
   @Output() offerClicked: EventEmitter<Offer> = new EventEmitter<Offer>();
+  @Output() offerDeleted: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
     private userService: UsersService,
@@ -32,7 +33,7 @@ export class OfferItemComponent implements OnInit {
   }
 
   onDelete(): void{
-    this.offerClicked.emit(this.offer);
+    this.offerDeleted.emit(this.offer.id);
   }
 
 }
