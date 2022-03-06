@@ -1,4 +1,4 @@
-<h1 style="margin: 0 auto;">{{offer.id ? 'Edit ' : 'Create '}} offer</h1>
+<h1 style="margin: 0 auto; text-align: center;">{{offer.id ? 'Edit ' : 'Create '}} offer</h1>
 
 <div class="center">
     <form [formGroup]="formGroup"  (ngSubmit)="onSubmit()" *ngIf="this.formGroup">
@@ -12,7 +12,10 @@
             <label>Description</label><br>
             <textarea type="text"
                       placeholder="Description"
-                      formControlName="description">
+                      formControlName="description"
+                      rows="15"
+                      cols="100"
+                      maxlength="200">
                       </textarea>
         </div>
         <div>

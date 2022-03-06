@@ -29,3 +29,10 @@ button{
 .center ul li{
   display: block !important;
 }
+
+input[type="text"],
+textarea {
+    width:250px;
+    padding: 0;
+    border: 1px solid #ccc;
+    }
