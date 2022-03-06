@@ -1,6 +1,6 @@
-<h1>{{offer.id ? 'Edit ' : 'Create '}} offer</h1>
+<h1 style="margin: 0 auto;">{{offer.id ? 'Edit ' : 'Create '}} offer</h1>
 
-<div>
+<div class="center">
     <form [formGroup]="formGroup"  (ngSubmit)="onSubmit()" *ngIf="this.formGroup">
         <div>
             <label>Title</label><br>

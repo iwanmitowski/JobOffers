@@ -35,7 +35,9 @@ export class LoginComponent implements OnInit {
       next: (res) =>{
         if (res) {
           this.authService.storeUserData(res);          
-          this.router.navigate(['/']);          
+          this.router.navigate(['/']);     
+          
+    window.location.reload();     
         }
         else{
           alert('Incorrect password or username')
