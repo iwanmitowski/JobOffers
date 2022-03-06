@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of, Subject, switchMap, takeUntil } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { User } from 'src/app/users/user.interface';
 import { Offer } from '../offer.interface';
 import { OffersService } from '../offers.service';
 
@@ -14,14 +16,16 @@ export class OfferFormComponent implements OnInit {
 
   formGroup!:FormGroup;
   offer!: Offer;
-  
+  user!: User;
+
   destroy$ = new Subject<boolean>();
   
   constructor(
     private fb:FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private offersService: OffersService
+    private offersService: OffersService,
+    private authService: AuthService,
   ) { 
     this.offer = {
     id: 0,
@@ -40,6 +44,8 @@ export class OfferFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = this.authService.getUserFromStorage();
+
     this.route.params.pipe(
       switchMap((params)=>{
         if (params['id']) {
@@ -84,20 +90,19 @@ export class OfferFormComponent implements OnInit {
       type: this.formGroup.value.type,
       category: this.formGroup.value.category,
       isActive: this.formGroup.value.isActive,
-      creatorId: this.offer.creatorId,
+      creatorId: this.user.id,
       candidateIds: this.offer.candidateIds,
-      creator: this.offer.creator,
+      creator: this.user,
       candidates: this.offer.candidates,
       approvedIds: this.offer.approvedIds,
       approved: this.offer.approved,
     }
     
     let request$;
-
+    
     if(offer.id){
       request$ = this.offersService.patchOffer$(offer);//edit
     }else{
-
       request$ = this.offersService.postOffer$(offer);//create
     }
 

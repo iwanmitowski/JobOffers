@@ -31,4 +31,8 @@ export class OfferItemComponent implements OnInit {
     this.offerClicked.emit(this.offer);
   }
 
+  onDelete(): void{
+    this.offerClicked.emit(this.offer);
+  }
+
 }

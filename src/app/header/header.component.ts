@@ -21,10 +21,6 @@ export class HeaderComponent implements OnInit {
     this.user = this.authService.getUserFromStorage();
   }
 
-  login(): void{
-    window.location.reload();
-  }
-
   logout(): void{
     this.user = null as any;
     this.authService.logout();

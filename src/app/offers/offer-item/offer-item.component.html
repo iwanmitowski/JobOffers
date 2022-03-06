@@ -5,10 +5,12 @@
       <h5>Type: {{offer.category}}</h5>
       <p>{{offer.description}}</p>
       <p>Candidates: {{offer.candidates.length || 0}}</p>
-      <button (click)="onClick()">Candidate</button>
+      <p *ngIf="offer.candidateIds.includes(user.id)">Are you approved: <strong [ngClass]="{'approved': offer.approvedIds.includes(user.id) === true}">{{offer.approvedIds.includes(user.id)}}</strong></p>
+      <button *ngIf="user.role == 'user'" (click)="onClick()">Candidate</button>
       <a 
-              [routerLink]= "['/offers', 'edit', offer.id]">
-              <button>Edit</button>
-            </a>
+      [routerLink]= "['/offers', 'edit', offer.id]">
+      <button *ngIf="user.id == offer.creatorId">Edit</button>
+    </a>
+    <button *ngIf="user.id == offer.creatorId" (click)="onDelete()" class="deleteBtn">Delete</button>
     </div>
   </article>

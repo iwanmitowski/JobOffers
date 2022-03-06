@@ -31,3 +31,11 @@
   button{
     margin-top: 5px;
   }
+
+  .deleteBtn{
+    background-color: rgb(97, 4, 4) !important;
+  }
+
+  .approved{
+    color: rgb(2, 83, 2);
+  }
